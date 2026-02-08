@@ -18,9 +18,14 @@ def calculate_min(numbers):
 def count_numbers(data):
     return len(data)
 
-numbers = [10, 5, 8, 20, 3]
+user_input = input("Enter numbers separated by commas: ")
+
+numbers = user_input.split(",")
+
+numbers = [int(n.strip()) for n in numbers]
 
 print("Average:", calculate_average(numbers))
 print("Maximum:", calculate_max(numbers))
 print("Minimum:", calculate_min(numbers))
 print("Total numbers:", count_numbers(numbers))
+
