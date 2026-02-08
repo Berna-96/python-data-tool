@@ -9,4 +9,15 @@ Simple Python project that reads numerical data from a CSV file and performs bas
 - Handle invalid data and missing files
 
 ## Project Structure
+python-data-tool/
+│
+├── main.py
+├── data/
+│ └── numbers.csv
 
+## Technologies
+- Python 3
+- Standard Library (`csv`)
+
+## Purpose
+This project was created to practice Python fundamentals, data handling and basic error management.
