@@ -20,12 +20,14 @@ def count_numbers(data):
 
 user_input = input("Enter numbers separated by commas: ")
 
-numbers = user_input.split(",")
+try:
+    numbers = user_input.split(",")
+    numbers = [int(n.strip()) for n in numbers]
 
-numbers = [int(n.strip()) for n in numbers]
+    print("Average:", calculate_average(numbers))
+    print("Maximum:", calculate_max(numbers))
+    print("Minimum:", calculate_min(numbers))
+    print("Total numbers:", count_numbers(numbers))
 
-print("Average:", calculate_average(numbers))
-print("Maximum:", calculate_max(numbers))
-print("Minimum:", calculate_min(numbers))
-print("Total numbers:", count_numbers(numbers))
-
+except ValueError:
+    print("Error: please enter only numbers separated by commas.")
