@@ -23,7 +23,7 @@ def count_numbers(data):
 numbers = []
 
 try:
-    with open("numbers.csv", newline="") as csvfile:
+    with open("data/numbers.csv", newline="") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             numbers.append(int(row["value"]))
