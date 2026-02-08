@@ -1,3 +1,5 @@
+import csv
+
 def calculate_average(numbers):
     return sum(numbers) / len(numbers)
 
@@ -18,16 +20,22 @@ def calculate_min(numbers):
 def count_numbers(data):
     return len(data)
 
-user_input = input("Enter numbers separated by commas: ")
+numbers = []
 
 try:
-    numbers = user_input.split(",")
-    numbers = [int(n.strip()) for n in numbers]
+    with open("numbers.csv", newline="") as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            numbers.append(int(row["value"]))
 
     print("Average:", calculate_average(numbers))
     print("Maximum:", calculate_max(numbers))
     print("Minimum:", calculate_min(numbers))
     print("Total numbers:", count_numbers(numbers))
 
+except FileNotFoundError:
+    print("Error: numbers.csv file not found.")
+
 except ValueError:
-    print("Error: please enter only numbers separated by commas.")
+    print("Error: invalid number in CSV file.")
+
